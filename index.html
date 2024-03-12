@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <title>LvB en VVB Order Winst Calculator</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+  </head>
+  <body>
+    <div class="calculator">
+      <h2>Winst berekening (LVB)</h2>
+      <form>
+        <label for="verkoopprijs">Verkoopprijs (incl. BTW):</label><br />
+        <input type="text" id="verkoopprijs" placeholder="Verkoopprijs" /><br />
+        BTW-bedrag: <output id="btw-output"></output><br />
+        Commissie: <output id="commissie-output"></output><br />
+
+        <label for="lvb-tarief"
+          ><a
+            href="https://partnerplatform.bol.com/nl/hulp-nodig/logistiek-via-bol-com/tarieven-logistiek-via-bol-com/"
+            >LvB-formaat</a
+          ></label
+        >
+        <select id="lvb-tarief">
+          <option value="3XS">3XS</option>
+          <option value="XXS">XXS</option>
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option></select
+        ><br />
+
+        <label for="inkoopprijs">Inkoopprijs:</label><br />
+        <input type="text" id="inkoopprijs" placeholder="Inkoopprijs" /><br />
+        <label for="winst">Winst per verkoop:</label><br />
+        <output id="winst-output"></output><br />
+        <label for="winstmarge">Winstmarge:</label><br />
+        <output id="winstmarge-output"></output><br />
+      </form>
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>
