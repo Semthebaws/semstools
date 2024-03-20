@@ -1,8 +1,10 @@
+/* Basisstijlen */
 body {
   margin: 0;
   padding: 0;
   font-family: "Arial", sans-serif;
   background-color: #f5f5f5;
+  overflow-x: hidden; /* Voorkom horizontaal scrollen */
 }
 
 .calculator {
@@ -11,8 +13,9 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  margin: auto; /* Horizontaal centreren */
+  width: auto; /* Standaard breedte */
+  max-width: 900px; /* Maximale breedte voor niet-mobiele apparaten */
+  margin: 20px auto; /* Centreren met verticale marge */
 }
 
 .calculator form {
@@ -20,30 +23,29 @@ body {
   grid-gap: 10px;
 }
 
-label {
+label,
+input[type="text"],
+select,
+output {
   font-size: 1.1rem;
 }
 
 input[type="text"],
 select,
 output {
-  width: calc(100% - 24px); /* Aanpassing voor marge */
+  width: 100%; /* Volledige breedte binnen .calculator */
   padding: 12px;
-  margin: 4px 0 12px;
-  display: inline-block;
+  margin: 4px 0;
+  display: block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  font-size: 1rem;
-  text-align: center; /* Tekst centreren */
+  text-align: center;
 }
 
-input[type="text"]::placeholder {
-  text-align: center; /* Placeholder tekst centreren */
-}
-
+input[type="text"]::placeholder,
 select option {
-  text-align: center; /* Opties centreren */
+  text-align: center;
 }
 
 input[type="text"]:focus {
@@ -52,11 +54,9 @@ input[type="text"]:focus {
 }
 
 output {
-  font-size: 1rem;
   color: #333;
   background-color: #e7e7e7;
   padding: 8px;
-  display: block;
 }
 
 a {
@@ -66,4 +66,14 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Media query voor mobiele apparaten */
+@media only screen and (max-width: 500px) {
+  .calculator {
+    width: 100%; /* Volledige breedte op mobiele apparaten */
+    margin: 0; /* Verwijder horizontale marges */
+    border-radius: 0; /* Verwijder afronding van hoeken */
+    box-shadow: none; /* Verwijder schaduw */
+  }
 }
