@@ -4,11 +4,6 @@ body {
   font-family: "Arial", sans-serif;
   background-color: #f5f5f5;
   overflow-x: hidden; /* Voorkom horizontaal scrollen */
-
-  display: flex; /* Zet flexbox layout aan */
-  justify-content: center; /* Horizontaal centreren */
-  align-items: center; /* Verticaal centreren */
-  min-height: 100vh; /* Minimale hoogte van het viewport */
 }
 
 .calculator {
@@ -19,7 +14,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: auto; /* Standaard breedte */
   max-width: 600px; /* Maximale breedte voor niet-mobiele apparaten */
-  margin: 20px; /* Behoud wat ruimte rondom de calculator */
+  margin: 20px auto; /* Centreren met verticale marge */
 }
 
 .calculator form {
