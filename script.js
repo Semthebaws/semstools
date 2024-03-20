@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const lvbTariefSelect = document.getElementById("lvb-tarief");
   const btwOutput = document.getElementById("btw-output");
   const commissieOutput = document.getElementById("commissie-output");
+  const overigeKostenInput = document.getElementById("OverigeKosten");
+  const lvbLabelServiceSelect = document.getElementById("LvbLabelService");
   const winstOutput = document.getElementById("winst-output");
   const winstmargeOutput = document.getElementById("winstmarge-output");
 
@@ -34,6 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
       S: verkoopprijs < 16 ? 4.85 : 5.6,
       M: verkoopprijs < 16 ? 5.01 : 5.76,
       L: verkoopprijs < 16 ? 6.07 : 6.82,
+      VvbBrievenbuspakket: verkoopprijs < 16 ? 4.35 : 4.35,
+      VvbPakketNl: verkoopprijs < 16 ? 5.15 : 5.15,
+      VvbPakketBe: verkoopprijs < 16 ? 5.19 : 5.19,
     };
     return tarieven[lvbTarief] || 0;
   }
@@ -42,11 +47,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const verkoopprijs = parseInputValue(verkoopprijsInput.value) || 0;
     const inkoopprijs = parseInputValue(inkoopprijsInput.value) || 0;
     const lvbTarief = lvbTariefSelect.value;
+    const overigeKosten = parseInputValue(overigeKostenInput.value) || 0;
     const btwBedrag = berekenBTWBedrag(verkoopprijs);
     const commissie = berekenCommissie(verkoopprijs);
     const lvbKosten = berekenLvBKosten(verkoopprijs, lvbTarief);
+    const lvbLabelServiceKosten =
+      lvbLabelServiceSelect.value === "Ja" ? 0.19 : 0;
     const winstPerVerkoop =
-      verkoopprijs - btwBedrag - commissie - lvbKosten - inkoopprijs;
+      verkoopprijs -
+      btwBedrag -
+      commissie -
+      lvbKosten -
+      inkoopprijs -
+      overigeKosten -
+      lvbLabelServiceKosten;
     const winstmarge = (winstPerVerkoop / verkoopprijs) * 100;
 
     btwOutput.textContent = `€${btwBedrag.toFixed(2)}`;
@@ -63,4 +77,6 @@ document.addEventListener("DOMContentLoaded", function () {
   verkoopprijsInput.addEventListener("input", updateUI);
   inkoopprijsInput.addEventListener("input", updateUI);
   lvbTariefSelect.addEventListener("change", updateUI);
+  overigeKostenInput.addEventListener("input", updateUI);
+  lvbLabelServiceSelect.addEventListener("change", updateUI);
 });

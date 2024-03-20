@@ -6,9 +6,9 @@
   </head>
   <body>
     <div class="calculator">
-      <h2>Winst berekening (LvB)</h2>
+      <h2>Winst berekening Bol</h2>
       <form>
-        <label for="verkoopprijs">Verkoopprijs (incl. BTW):</label><br />
+        <label for="verkoopprijs">Verkoopprijs (incl. BTW):</label>
         <input type="text" id="verkoopprijs" placeholder="Verkoopprijs" /><br />
         BTW-bedrag: <output id="btw-output"></output><br />
         Commissie: <output id="commissie-output"></output><br />
@@ -16,8 +16,8 @@
         <label for="lvb-tarief"
           ><a
             href="https://partnerplatform.bol.com/nl/hulp-nodig/logistiek-via-bol-com/tarieven-logistiek-via-bol-com/"
-            >LvB-formaat</a
-          ></label
+            >LvB-formaat </a
+          >of VVB tarief</label
         >
         <select id="lvb-tarief">
           <option value="3XS">3XS</option>
@@ -25,14 +25,28 @@
           <option value="XS">XS</option>
           <option value="S">S</option>
           <option value="M">M</option>
-          <option value="L">L</option></select
+          <option value="L">L</option>
+          <option value="VvbBrievenbuspakket">VVB Brievenbuspakket</option>
+          <option value="VvbPakketNl">VVB Pakket NL</option>
+          <option value="VvbPakketBe">VVB Pakket BE</option></select
         ><br />
 
-        <label for="inkoopprijs">Inkoopprijs:</label><br />
+        <label for="inkoopprijs">Inkoopprijs:</label>
         <input type="text" id="inkoopprijs" placeholder="Inkoopprijs" /><br />
-        <label for="winst">Winst per verkoop:</label><br />
+        <label for="LvbLabelService">LvB label service</label>
+        <select id="LvbLabelService">
+          <option value="Nee">Nee</option>
+          <option value="Ja">Ja</option></select
+        ><br />
+        <label for="OverigeKosten">Overige kosten:</label>
+        <input
+          type="text"
+          id="OverigeKosten"
+          placeholder="Verpakking, Pick & Pack, etc."
+        /><br />
+        <label for="winst">Winst per verkoop:</label>
         <output id="winst-output"></output><br />
-        <label for="winstmarge">Winstmarge:</label><br />
+        <label for="winstmarge">Winstmarge:</label>
         <output id="winstmarge-output"></output><br />
       </form>
       <script src="script.js"></script>
