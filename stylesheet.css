@@ -14,7 +14,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: auto; /* Standaard breedte */
-  max-width: 900px; /* Maximale breedte voor niet-mobiele apparaten */
+  max-width: 600px; /* Maximale breedte voor niet-mobiele apparaten */
   margin: 20px auto; /* Centreren met verticale marge */
 }
 
@@ -69,10 +69,11 @@ a:hover {
 }
 
 /* Media query voor mobiele apparaten */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .calculator {
-    width: 100%; /* Volledige breedte op mobiele apparaten */
-    margin: 0; /* Verwijder horizontale marges */
+    display: block; /* Zorgt ervoor dat de calculator als een blokelement wordt weergegeven */
+    max-width: 100%; /* Zorgt ervoor dat de maximale breedte niet meer dan 100% is */
+    margin: 0 auto; /* Centreert het element indien nodig en verwijdert horizontale marges */
     border-radius: 0; /* Verwijder afronding van hoeken */
     box-shadow: none; /* Verwijder schaduw */
   }
